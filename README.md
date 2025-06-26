@@ -1,7 +1,7 @@
 ## Info-Retrieval-chatbot
 
 AI-based Help Bot for Information Retrieval from a Knowledge Graph Based on Static/Dynamic Web Portal Content <br>
-The MOSDAC (www.mosdac.gov.in) portal hosts satellite data and services accessible to the public. It includes <br> 
+The [MOSDAC](www.mosdac.gov.in) portal hosts satellite data and services accessible to the public. It includes <br> 
 extensive FAQs, documentation, product specifications, and support material. However, users often struggle to <br>
 locate precise information due to layered navigation, mixed content formats, and time constraints. An AI-based <br>
 help bot is envisioned to intelligently parse all hosted content and return instant, contextual responses to <br>
