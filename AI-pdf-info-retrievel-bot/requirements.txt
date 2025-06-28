@@ -1,0 +1,3 @@
+PyMuPDF
+sentence-transformers
+faiss-cpu
