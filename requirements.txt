@@ -1,0 +1,11 @@
+streamlit
+langchain==0.1.20
+langchain-community==0.0.38
+langchain-core==0.1.52
+langchain-text-splitters
+faiss-cpu
+PyPDF2
+python-dotenv
+tiktoken
+huggingface-hub<0.20
+sentence-transformers
