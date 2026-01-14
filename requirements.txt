@@ -7,5 +7,5 @@ faiss-cpu
 PyPDF2
 python-dotenv
 tiktoken
-huggingface-hub<0.20
+huggingface-hub==0.19.4
 sentence-transformers
