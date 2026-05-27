@@ -5,7 +5,7 @@ Thanks for helping improve this project.
 ## Before You Start
 
 - Read the [README](README.md) to understand the current architecture and run instructions.
-- Check the existing [issues](./issues) and [discussions](./discussions) to avoid duplicating work.
+- Check the existing [issues](https://github.com/ARUNAGIRINATHAN-K/parallel-news-analyst/issues) and [discussions](https://github.com/ARUNAGIRINATHAN-K/parallel-news-analyst/discussions) to avoid duplicating work.
 - If your repository hosting does not expose those relative paths, replace them with your GitHub issue and discussion URLs.
 
 ## How to Contribute
@@ -72,12 +72,10 @@ If you want to improve the system further, the roadmap above is the recommended 
 
 ## Issue and Discussion Links
 
-- [Open an issue](./issues/new)
-- [Start a discussion](./discussions/new)
+- [Open an issue](https://github.com/ARUNAGIRINATHAN-K/parallel-news-analyst/issues/new)
+- [Start a discussion](https://github.com/ARUNAGIRINATHAN-K/parallel-news-analyst/discussions/new)
 
-If your hosting platform requires full URLs, use:
+If your hosting platform requires full URLs, you can use the direct links for this repository:
 
-- `https://github.com/<your-username>/<your-repo>/issues/new`
-- `https://github.com/<your-username>/<your-repo>/discussions/new`
-
-Replace the placeholders with your actual repository path before publishing.
+- https://github.com/ARUNAGIRINATHAN-K/parallel-news-analyst/issues/new
+- https://github.com/ARUNAGIRINATHAN-K/parallel-news-analyst/discussions/new
