@@ -24,9 +24,6 @@ This roadmap is ordered by impact and implementation effort. Each item includes 
 
 | Enhancement | Why it matters | Primary files |
 | --- | --- | --- |
-| Structured API errors and status codes | Makes the backend predictable for the UI and future clients. | [api/main.py](api/main.py) |
-| Source citations in final reports | Improves trust by showing where each summary came from. | [tools/tavily_search.py](tools/tavily_search.py), [agents/finance_agent.py](agents/finance_agent.py), [agents/ai_agent.py](agents/ai_agent.py), [agents/cyber_agent.py](agents/cyber_agent.py), [agents/startup_agent.py](agents/startup_agent.py), [graph/reducer.py](graph/reducer.py), [ui/streamlit_app.py](ui/streamlit_app.py) |
-| Retry, timeout, and fallback handling | Reduces user-visible failures when Groq or Tavily is unstable. | [tools/tavily_search.py](tools/tavily_search.py), [agents/finance_agent.py](agents/finance_agent.py), [agents/ai_agent.py](agents/ai_agent.py), [agents/cyber_agent.py](agents/cyber_agent.py), [agents/startup_agent.py](agents/startup_agent.py) |
 | Query controls in the UI | Lets users narrow the analysis and reduces irrelevant output. | [ui/streamlit_app.py](ui/streamlit_app.py), [api/main.py](api/main.py), [graph/workflow.py](graph/workflow.py) |
 | Response history or persistence | Turns the app from a one-shot demo into a usable research tool. | [api/main.py](api/main.py), [ui/streamlit_app.py](ui/streamlit_app.py), new [storage/](storage) or [data/](data) module |
 
