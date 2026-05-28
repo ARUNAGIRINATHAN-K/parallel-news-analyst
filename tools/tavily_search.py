@@ -1,6 +1,7 @@
 import os
 from tavily import TavilyClient
 from dotenv import load_dotenv
+from tools.reliability import run_with_retries
 
 # =========================================================
 # LOAD ENV VARIABLES
@@ -47,8 +48,7 @@ def search_news(
             List of news articles
     """
 
-    try:
-
+    def _search():
         response = client.search(
             query=query,
             topic="news",
@@ -57,14 +57,16 @@ def search_news(
             include_answer=True,
             include_raw_content=False
         )
-
         return response.get("results", [])
 
-    except Exception as e:
-
-        print(f"[TAVILY ERROR]: {e}")
-
-        return []
+    return run_with_retries(
+        _search,
+        fallback=[],
+        label="Tavily search",
+        retries=2,
+        timeout_seconds=20,
+        backoff_seconds=1.5,
+    )
 
 
 # =========================================================

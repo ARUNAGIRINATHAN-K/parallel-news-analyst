@@ -1,5 +1,6 @@
 from langchain_groq import ChatGroq
 from tools.tavily_search import search_news
+from tools.reliability import run_with_retries
 from prompts.ai_prompt import AI_PROMPT
 
 # Initialize Groq LLM
@@ -53,18 +54,27 @@ def ai_agent(state):
     combined_articles = "\n\n".join(articles)
 
     # Generate AI analysis summary
-    response = llm.invoke(
-        AI_PROMPT.format(
-            query=query,
-            articles=combined_articles
-        )
+    response = run_with_retries(
+        lambda: llm.invoke(
+            AI_PROMPT.format(
+                query=query,
+                articles=combined_articles
+            )
+        ),
+        fallback="Unable to generate an AI summary right now.",
+        label="AI agent LLM",
+        retries=2,
+        timeout_seconds=30,
+        backoff_seconds=1.5,
     )
+
+    summary = response.content if hasattr(response, "content") else response
 
     return {
         "ai_results": [
             {
                 "agent": "AI Agent",
-                "summary": response.content,
+                "summary": summary,
                 "sources": [
                     r.get("url") for r in search_results
                 ]

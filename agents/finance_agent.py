@@ -1,5 +1,6 @@
 from langchain_groq import ChatGroq
 from tools.tavily_search import search_news
+from tools.reliability import run_with_retries
 from prompts.finance_prompt import FINANCE_PROMPT
 
 # Initialize Groq LLM
@@ -50,18 +51,27 @@ def finance_agent(state):
     combined_articles = "\n\n".join(articles)
 
     # Generate finance summary
-    response = llm.invoke(
-        FINANCE_PROMPT.format(
-            query=query,
-            articles=combined_articles
-        )
+    response = run_with_retries(
+        lambda: llm.invoke(
+            FINANCE_PROMPT.format(
+                query=query,
+                articles=combined_articles
+            )
+        ),
+        fallback="Unable to generate a finance summary right now.",
+        label="Finance agent LLM",
+        retries=2,
+        timeout_seconds=30,
+        backoff_seconds=1.5,
     )
+
+    summary = response.content if hasattr(response, "content") else response
 
     return {
         "finance_results": [
             {
                 "agent": "Finance Agent",
-                "summary": response.content,
+                "summary": summary,
                 "sources": [
                     r.get("url") for r in search_results
                 ]
