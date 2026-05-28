@@ -1,6 +1,5 @@
-# Parallel News Analyst
+# Parallel Multi-Agent News Analyst
 
- 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
 [![LangGraph](https://img.shields.io/badge/Orchestration-LangGraph-3C8DBC)](https://langchain-ai.github.io/langgraph/)
 [![Groq](https://img.shields.io/badge/LLM-Groq-FF6B00)](https://groq.com/)
@@ -9,6 +8,8 @@
  
 
 *Lightweight multi-agent news analysis using LangGraph (orchestration), Groq (LLM), and Tavily (news search). FastAPI provides an API and Streamlit a simple UI.*
+
+![UI](assests/UI.png)
 
 ## Architecture
  
