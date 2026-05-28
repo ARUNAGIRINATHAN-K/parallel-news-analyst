@@ -190,6 +190,13 @@ if analyze_button:
                                 unsafe_allow_html=True
                             )
 
+                            # Sources (if any)
+                            sources = item.get("sources") or []
+                            if sources:
+                                st.markdown("**Sources:**")
+                                for s in sources:
+                                    st.markdown(f"- [{s}]({s})")
+
                     # =============================================
                     # AI AGENT
                     # =============================================
@@ -210,6 +217,12 @@ if analyze_button:
                                 """,
                                 unsafe_allow_html=True
                             )
+
+                            sources = item.get("sources") or []
+                            if sources:
+                                st.markdown("**Sources:**")
+                                for s in sources:
+                                    st.markdown(f"- [{s}]({s})")
 
                     # =============================================
                     # CYBER AGENT
@@ -234,6 +247,12 @@ if analyze_button:
                                 unsafe_allow_html=True
                             )
 
+                            sources = item.get("sources") or []
+                            if sources:
+                                st.markdown("**Sources:**")
+                                for s in sources:
+                                    st.markdown(f"- [{s}]({s})")
+
                     # =============================================
                     # STARTUP AGENT
                     # =============================================
@@ -254,6 +273,12 @@ if analyze_button:
                                 """,
                                 unsafe_allow_html=True
                             )
+
+                            sources = item.get("sources") or []
+                            if sources:
+                                st.markdown("**Sources:**")
+                                for s in sources:
+                                    st.markdown(f"- [{s}]({s})")
 
                     # =================================================
                     # RAW JSON OUTPUT
