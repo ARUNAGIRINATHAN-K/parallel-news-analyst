@@ -1,5 +1,5 @@
 from langchain_groq import ChatGroq
-from tools.tavily_search import search_news
+from tools.tavily_search import search_news, build_article_digest
 from tools.reliability import run_with_retries
 from prompts.startup_prompt import STARTUP_PROMPT
 
@@ -38,21 +38,8 @@ def startup_agent(state):
     """
 
     # Search latest startup news
-    search_results = search_news(startup_query)
-
-    # Extract article information
-    articles = []
-
-    for result in search_results:
-        articles.append(
-            f"""
-            Title: {result.get('title')}
-            Content: {result.get('content')}
-            URL: {result.get('url')}
-            """
-        )
-
-    combined_articles = "\n\n".join(articles)
+    search_results = search_news(startup_query, max_results=3)
+    combined_articles = build_article_digest(search_results)
 
     # Generate startup ecosystem summary
     response = run_with_retries(
@@ -65,7 +52,7 @@ def startup_agent(state):
         fallback="Unable to generate a startup summary right now.",
         label="Startup agent LLM",
         retries=2,
-        timeout_seconds=30,
+        timeout_seconds=60,
         backoff_seconds=1.5,
     )
 

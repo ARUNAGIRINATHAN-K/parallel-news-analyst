@@ -152,14 +152,7 @@ if analyze_button:
 
                     st.markdown("## 📋 Final Intelligence Report")
 
-                    st.markdown(
-                        f"""
-                        <div class="report-box">
-                        {data.get('final_report')}
-                        </div>
-                        """,
-                        unsafe_allow_html=True
-                    )
+                    st.markdown(data.get("final_report") or "No final report available.")
 
                     st.markdown("---")
 
@@ -177,18 +170,9 @@ if analyze_button:
 
                         st.markdown("## 💰 Finance Agent")
 
-                        for item in data.get(
-                            "finance_results", []
-                        ):
+                        for item in data.get("finance_results", []):
 
-                            st.markdown(
-                                f"""
-                                <div class="agent-card">
-                                {item.get("summary")}
-                                </div>
-                                """,
-                                unsafe_allow_html=True
-                            )
+                            st.markdown(item.get("summary") or "No finance summary available.")
 
                             # Sources (if any)
                             sources = item.get("sources") or []
@@ -205,18 +189,9 @@ if analyze_button:
 
                         st.markdown("## 🤖 AI Agent")
 
-                        for item in data.get(
-                            "ai_results", []
-                        ):
+                        for item in data.get("ai_results", []):
 
-                            st.markdown(
-                                f"""
-                                <div class="agent-card">
-                                {item.get("summary")}
-                                </div>
-                                """,
-                                unsafe_allow_html=True
-                            )
+                            st.markdown(item.get("summary") or "No AI summary available.")
 
                             sources = item.get("sources") or []
                             if sources:
@@ -234,18 +209,9 @@ if analyze_button:
 
                         st.markdown("## 🛡️ Cybersecurity Agent")
 
-                        for item in data.get(
-                            "cyber_results", []
-                        ):
+                        for item in data.get("cyber_results", []):
 
-                            st.markdown(
-                                f"""
-                                <div class="agent-card">
-                                {item.get("summary")}
-                                </div>
-                                """,
-                                unsafe_allow_html=True
-                            )
+                            st.markdown(item.get("summary") or "No cybersecurity summary available.")
 
                             sources = item.get("sources") or []
                             if sources:
@@ -261,18 +227,9 @@ if analyze_button:
 
                         st.markdown("## 🚀 Startup Agent")
 
-                        for item in data.get(
-                            "startup_results", []
-                        ):
+                        for item in data.get("startup_results", []):
 
-                            st.markdown(
-                                f"""
-                                <div class="agent-card">
-                                {item.get("summary")}
-                                </div>
-                                """,
-                                unsafe_allow_html=True
-                            )
+                            st.markdown(item.get("summary") or "No startup summary available.")
 
                             sources = item.get("sources") or []
                             if sources:

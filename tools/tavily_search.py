@@ -101,6 +101,38 @@ def format_search_results(results):
     return "\n\n".join(formatted)
 
 
+def build_article_digest(
+    results,
+    max_articles: int = 3,
+    max_content_chars: int = 400,
+):
+    """
+    Build a compact article digest for LLM prompts.
+    """
+
+    digest = []
+
+    for idx, result in enumerate(results[:max_articles], start=1):
+        title = result.get("title", "N/A")
+        content = result.get("content", "N/A")
+        url = result.get("url", "N/A")
+
+        if content and len(content) > max_content_chars:
+            content = content[:max_content_chars].rstrip() + "..."
+
+        digest.append(
+            f"""
+            Article {idx}
+
+            Title: {title}
+            Content: {content}
+            URL: {url}
+            """
+        )
+
+    return "\n\n".join(digest) if digest else "No articles found."
+
+
 # =========================================================
 # TEST RUN
 # =========================================================
